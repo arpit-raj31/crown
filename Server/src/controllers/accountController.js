@@ -30,10 +30,7 @@ const generateCustomUuid = async () => {
 
   return uniqueUuid;
 };
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f35004 (New Changes)
 export const createLiveAccount = async (req, res) => {
   try {
     const {
@@ -131,10 +128,7 @@ export const createLiveAccount = async (req, res) => {
     Your Trading Platform Team`,
     };
     
-<<<<<<< HEAD
-=======
 
->>>>>>> 1f35004 (New Changes)
     await transporter.sendMail(mailOptions);
 
     res.status(201).json({
@@ -151,10 +145,7 @@ export const createLiveAccount = async (req, res) => {
 };
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f35004 (New Changes)
 export const getLiveAccount = async (req, res) => {
   const { userId } = req.params; // Only require userId
 
@@ -230,11 +221,10 @@ export const withdraw = async (req, res) => {
       type: "withdrawal",
       transactionId,
       amount,
-<<<<<<< HEAD
-      status: "success",
-=======
+
+    
       status: "pending",
->>>>>>> 1f35004 (New Changes)
+
       description: "Withdraw to Live account",
     });
 
@@ -278,11 +268,9 @@ export const deposit = async (req, res) => {
       type: "deposit",
       transactionId,
       amount,
-<<<<<<< HEAD
-      status: "success",
-=======
+
       status: "pending", // Initially pending
->>>>>>> 1f35004 (New Changes)
+
       description: "Deposit to Live account",
     });
 
