@@ -198,7 +198,7 @@ const getLivePrice = async (symbol) => {
         const normalizedSymbol = symbol.endsWith("m") ? symbol : `${symbol}m`;
         console.log(`Fetching live price for: ${normalizedSymbol}`);
         
-        const response = await axios.get(`http://localhost:8000/market-data`);
+        const response = await axios.get(`https://mt5-heag.onrender.com/market-data`);
         if (response.data[normalizedSymbol]?.length > 0) {
             return response.data[normalizedSymbol][0].bid;
         }
