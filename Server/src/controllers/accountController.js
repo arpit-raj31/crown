@@ -251,7 +251,7 @@ export const withdraw = async (req, res) => {
     }
     let apiKey;
     try {
-      const apiKeyResponse = await axios.post("https://mywallet.life/wallet-api.php", {
+      const apiKeyResponse = await axios.post("https://mywallet.life/wallet-api-credit-debit.php", {
         walletType, wID, pwd, securityKey
       });
 
@@ -267,7 +267,7 @@ export const withdraw = async (req, res) => {
 
     let paymentResponse;
     try {
-      paymentResponse = await axios.post("https://mywallet.life/wallet-api.php", {
+      paymentResponse = await axios.post("https://mywallet.life/wallet-api-credit-debit.php", {
         walletType, wID, pwd, amount: amountINR, paymentType, apiKey, securityKey
       });
 
@@ -340,7 +340,7 @@ export const admindeposit = async (req, res) => {
       // Fetch API key if not provided
       if (!resolvedApiKey) {
         const apiKeyResponse = await axios.post(
-          "https://mywallet.life/wallet-api.php",
+          "https://mywallet.life/wallet-api-credit-debit.php",
           { walletType, wID, pwd,securityKey }
         );
 
@@ -364,7 +364,7 @@ export const admindeposit = async (req, res) => {
 
       // Call external API for payment processing
       const paymentResponse = await axios.post(
-        "https://mywallet.life/wallet-api.php",
+        "https://mywallet.life/wallet-api-credit-debit.php",
         paymentData
       );
 
@@ -455,7 +455,7 @@ export const deposit = async (req, res) => {
 
     let resolvedApiKey = apiKey;
     if (!resolvedApiKey) {
-      const paymentResponse = await axios.post('https://mywallet.life/wallet-api.php', {
+      const paymentResponse = await axios.post('https://mywallet.life/wallet-api-credit-debit.php', {
         walletType,
         wID,
         pwd,securityKey
@@ -478,7 +478,7 @@ export const deposit = async (req, res) => {
       securityKey
     };
 
-    const paymentTransactionResponse = await axios.post('https://mywallet.life/wallet-api.php', paymentData);
+    const paymentTransactionResponse = await axios.post('https://mywallet.life/wallet-api-credit-debit.php', paymentData);
 
     if (paymentTransactionResponse.data.response !== 1) {
       return res.status(400).json({ message: 'Payment failed' });
